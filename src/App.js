@@ -5,8 +5,12 @@ import CreatePost from './components/CreatePost.js';
 import Login from './components/Login.js';
 import Logout from './components/Logout.js';
 import Navbar from './components/Navbar.js';
+import { useState } from 'react';
 
 function App() {
+
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <>
       <Router>
@@ -14,7 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/createpost' element={<CreatePost />}></Route>
-          <Route path='/login' element={<Login />}></Route>
+          <Route path='/login' element={<Login setIsAuth={setIsAuth} />}></Route>
           <Route path='/logout' element={<Logout />}></Route>
         </Routes>
       </Router>
